@@ -18,7 +18,10 @@
   {:dev  [:project/dev :profiles/dev]
    :repl {:prep-tasks   ^:replace ["javac" "compile"]
           :repl-options {:init-ns user}}
-   :uberjar {:aot :all}
+   :uberjar {:main ^:skip-aot film-ratings.main
+             :uberjar-name "film-ratings.jar"
+             :resource-paths ["resources" "target/resources"]}
+  ;; :uberjar {:aot :all}
    :profiles/dev {}
    :project/dev  {:source-paths   ["dev/src"]
                   :resource-paths ["dev/resources"]
